@@ -1,0 +1,46 @@
+:root {
+  --container-width: 1200px;
+  --container-padding: 20px;
+  --violet: #685ed6;
+  --violet-secondary: #F1E4FF;
+  --white: #fff;
+  --black: #1d2530;
+}
+.accent {
+  color: var(--violet);
+}
+
+.none {
+  display: none !important; 
+}
+
+@mixin display($fd: row, $jc: start, $ai: center) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin btn($padding: 10px 0px, $width: 140px, $height: 40px, $bg-color: var(--violet), $color: var(--white)) {
+  padding: $padding;
+  width: $width;
+  height: $height;
+  @include display($jc: center);
+  background-color: $bg-color;
+  color: $color;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: all 0.3s linear;
+  &:hover {
+    background-color: transparent;
+    border-color: var(--violet);
+    color: var(--violet);
+  }
+}
+
+@mixin textStyle($fs: 20px, $fw: 400, $lh: 26px, $color: var(--black)) {
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+  color: $color;
+}

@@ -1,0 +1,173 @@
+.site-header {
+  padding: 32px 0px 60px;
+  background-image: url(../images/header/header-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.header {
+  @include display($fd: column);
+}
+.header__logo-link {
+  display: inline-block;
+}
+.header-row {
+  margin-bottom: 120px;
+  width: 100%;
+  @include display($jc: space-between, $ai: center);
+}
+.header__nav {
+  @include display($ai: center);
+}
+.header__list {
+  margin-right: 40px;
+  @include display($ai: center);
+}
+.header__item + .header__item {
+  margin-left: 63px;
+}
+.header__link {
+  position: relative;
+  @include textStyle();
+  transition: color 0.3s linear;
+  &:hover {
+    color: var(--violet);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3s linear;
+    width: 100%;
+    height: 2px;
+    background-color: var(--violet);
+    border-radius: 5px;
+  }
+  &:hover::before {
+    transform: scaleX(1);
+  }
+}
+.active {
+  @include textStyle($fw: 700, $color: var(--violet));
+}
+.header__sign-in {
+  margin-right: 30px;
+  @include btn(
+    $width: 75px,
+    $bg-color: var(--violet-secondary),
+    $color: var(--violet)
+  );
+  @include textStyle($fs: 16px, $fw: 700, $lh: 20px, $color: var(--violet));
+  &:hover {
+    background-color: var(--violet);
+    color: var(--white);
+  }
+}
+.header__sign-up {
+  @include textStyle($fs: 16px, $fw: 700, $lh: 20px);
+  @include btn();
+}
+.header__content-wrapper {
+  width: 100%;
+  @include display($jc: space-between, $ai: start);
+}
+.header__content {
+  margin-top: 31px;
+  width: 482px;
+}
+.header__title {
+  margin-bottom: 24px;
+  @include textStyle($fs: 50px, $fw: 800, $lh: 60px);
+}
+.header__text {
+  margin-bottom: 32px;
+  @include textStyle($fs: 24px, $lh: 34px);
+}
+.header__text > .accent {
+  font-weight: 800;
+}
+.header__content-btn {
+  @include btn($padding: 12px 0px, $width: 168px, $height: 48px);
+  @include textStyle($fs: 18px, $fw: 700, $lh: 24px, $color: var(--white));
+}
+.header__img {
+  width: 690px;
+  height: 555px;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.header__burger-btn {
+  width: 30px;
+  height: 18px;
+  display: none;
+  background-image: url(../images/header/burger-icon.svg);
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 1020px) {
+  .site-header {
+    padding: 32px 0px 23px;
+  }
+  .header__list {
+    display: none;
+  }
+  .header__sign-in {
+    display: none;
+  }
+  .header__sign-up {
+    display: none;
+  }
+  .header__burger-btn {
+    display: block;
+  }
+  .header__content {
+    margin-top: 0;
+    width: 400px;
+  }
+  .header__title {
+    margin-bottom: 32px;
+    @include textStyle($fs: 32px, $fw: 800, $lh: 40px);
+  }
+  .header__text {
+    margin-bottom: 32px;
+    @include textStyle($fs: 18px, $lh: 28px);
+  }
+  .header__img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    padding: 32px 0px 0px;
+    background-image: url(../images/header/header-mobile-bg.jpg);
+  }
+  .header-row {
+    margin-bottom: 40px;
+  }
+  .header__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__content {
+    margin-bottom: 48px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 450px) {
+}
